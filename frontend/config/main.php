@@ -9,16 +9,21 @@ $params = array_merge(
 return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => [
+        'log',
+        'common\bootstrap\SetUp',
+    ],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
+            'baseUrl' => '',
             'csrfParam' => '_csrf-frontend',
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'shop\entities\user\User',
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
+            'loginUrl' => ['auth/auth/login'],
         ],
         'session' => [
             // this is the name of the session cookie used for login on the frontend
@@ -36,14 +41,16 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '' => 'site/index',
+
             ],
         ],
-        */
+
     ],
     'params' => $params,
 ];
