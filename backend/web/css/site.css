@@ -5192,7 +5192,7 @@ table.text-center th {
     }
     /*###################################*/
 
-    nav#w1.navbar-inverse.navbar-fixed-top.navbar {
+    .navbar-inverse {
 
         background-color: #FF7E00 !important;
 

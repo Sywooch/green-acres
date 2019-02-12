@@ -18,7 +18,7 @@ use yii\db\ActiveRecord;
 
 
 /**
- * User model
+ * OrderGuest model
  *
  * @property integer $id
  * @property integer $created_at

@@ -6,11 +6,10 @@
  * Time: 19:36
  */
 
-namespace shop\forms\shop\order;
+namespace shop\forms\manage\order;
 
 
 use shop\entities\shop\Delivery;
-use shop\entities\shop\Order\OrderGuest;
 use shop\helpers\PriceHelper;
 use yii\base\Model;
 use yii\helpers\ArrayHelper;
@@ -20,7 +19,7 @@ use yii\helpers\ArrayHelper;
  * @package shop\forms\shop\order
  *
  */
-class OrderGuestForm extends Model
+class OrderEditGuestForm extends Model
 {
 
 
@@ -32,19 +31,6 @@ class OrderGuestForm extends Model
     public $name;
 
 
-    public function __construct(OrderGuest $orderGuest, array $config = [])
-    {
-        $this->delivery = $orderGuest->delivery_method_id;
-        $this->index = $orderGuest->delivery_index;
-        $this->address = $orderGuest->delivery_address;
-        $this->note = $orderGuest->note;
-        $this->phone = $orderGuest->customer_phone;
-        $this->name = $orderGuest->customer_name;
-
-
-
-        parent::__construct($config);
-    }
 
 
     public function rules()
@@ -75,7 +61,7 @@ class OrderGuestForm extends Model
             'delivery_cost' => 'Delivery Cost',
             'payment_method' => 'Payment Method',
             'cost' => 'Cost',
-            'note' => 'Комментарии',
+            'note' => 'Note',
             'current_status' => 'Current Status',
             'cancel_reason' => 'Cancel Reason',
             'phone' => 'Телефон',

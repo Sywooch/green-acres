@@ -31,7 +31,7 @@ class OrderGuestService
 
 
     public function __construct(
-        Cart $cart, OrderGuestRepository $orders, ProductRepository $products, DeliveryRepository $deliveryMethods, TransactionManager $transaction, MailerInterface $mailer
+        CartService $cart, OrderGuestRepository $orders, ProductRepository $products, DeliveryRepository $deliveryMethods, TransactionManager $transaction, MailerInterface $mailer
 
 
     )
@@ -47,11 +47,9 @@ class OrderGuestService
     }
 
 
-    public function checkoutGuest(OrderGuestForm $form)
+    public function checkoutGuest(OrderGuestForm $form, $cart, $totalCount)
     {
 
-        $cartItems = $this->cart->loadCartItems();
-        $cartTotal = $this->cart->totalCount();
 
         $order = OrderGuest::create($form->delivery, $form->note, $form->phone, $form->name, $form->index, $form->address);
 
@@ -59,12 +57,12 @@ class OrderGuestService
 
         $order->delivery_method_name = $delivery->name;
         $order->delivery_cost = $delivery->cost;
-        $order->cost = $cartTotal + $delivery->cost;
+        $order->cost = $totalCount + $delivery->cost;
 
         $newOrder = $this->orders->save($order);
 
 
-        foreach ($cartItems as $i => $item) {
+        foreach ($cart as $i => $item) {
 
             $productId = (int)$item['product']->id;
             $product = $this->products->get($productId);
@@ -77,7 +75,9 @@ class OrderGuestService
             );
 
             $orderItem->save();
+
         }
+
 
         $sent = $this->mailer->compose(
 
@@ -93,7 +93,7 @@ class OrderGuestService
             throw new \RuntimeException('Sending error.');
         }
 
-        \Yii::$app->session->close();
+
 
 
         return $newOrder;

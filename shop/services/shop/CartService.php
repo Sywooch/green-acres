@@ -10,10 +10,8 @@ namespace shop\services\shop;
 
 
 use shop\cart\Cart;
-use shop\cart\CartItem;
-
 use shop\repositories\shop\ProductRepository;
-use yii\web\Session;
+
 
 
 class CartService
@@ -105,6 +103,13 @@ class CartService
     }
 
 
+    public function clearAndHome()
+    {
+
+        $this->cart->clear();
+        return \Yii::$app->request->referrer;
+
+    }
 
 
 

@@ -68,8 +68,31 @@ class OrderController extends Controller
 
     public function actionExport()
     {
+        /**
+         * OrderGuest model
+         *
+         * @property integer $id
+         * @property integer $created_at
+         * @property string $username
+         * @property integer $delivery_method_id
+         * @property string $delivery_method_name
+         * @property integer $delivery_cost
+         * @property string $payment_method
+         * @property integer $cost
+         * @property string $note
+         * @property integer $current_status
+         * @property string $cancel_reason
+         * @property integer $statuses
+         * @property string $customer_phone
+         * @property string $customer_name
+         * @property string $delivery_index
+         * @property string $delivery_address
 
-        $query = Order::find()->orderBy(['id' => SORT_DESC]);
+         */
+
+
+
+        $query = OrderGuest::find()->orderBy(['id' => SORT_DESC]);
 
         $objPHPExcel = new \PHPExcel();
 
@@ -80,6 +103,12 @@ class OrderController extends Controller
 
             $worksheet->setCellValueByColumnAndRow(0, $row + 1, $order->id);
             $worksheet->setCellValueByColumnAndRow(1, $row + 1, date('Y-m-d H:i:s', $order->created_at));
+            $worksheet->setCellValueByColumnAndRow(0, $row + 1, $order->username);
+            $worksheet->setCellValueByColumnAndRow(0, $row + 1, $order->delivery_method_name);
+            $worksheet->setCellValueByColumnAndRow(0, $row + 1, $order->delivery_cost);
+            $worksheet->setCellValueByColumnAndRow(0, $row + 1, $order->payment_method);
+            $worksheet->setCellValueByColumnAndRow(0, $row + 1, $order->cost);
+            $worksheet->setCellValueByColumnAndRow(0, $row + 1, $order->current_status);
 
         }
 

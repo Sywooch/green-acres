@@ -1,8 +1,8 @@
 <?php
 
 /* @var $this yii\web\View */
-/* @var $order shop\entities\shop\order\Order */
-/* @var $model shop\forms\manage\shop\order\OrderEditForm */
+/* @var $order shop\entities\shop\order\OrderGuest */
+/* @var $model shop\forms\manage\order\OrderEditGuestForm */
 
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
@@ -19,17 +19,17 @@ $this->params['breadcrumbs'][] = 'Update';
     <div class="box box-default">
         <div class="box-header with-border">Customer</div>
         <div class="box-body">
-            <?= $form->field($model->customer, 'phone')->textInput() ?>
-            <?= $form->field($model->customer, 'name')->textInput() ?>
+            <?= $form->field($model, 'phone')->textInput() ?>
+            <?= $form->field($model, 'name')->textInput() ?>
         </div>
     </div>
 
     <div class="box box-default">
         <div class="box-header with-border">Delivery</div>
         <div class="box-body">
-            <?= $form->field($model->delivery, 'method')->dropDownList($model->delivery->deliveryMethodsList(), ['prompt' => '--- Select ---']) ?>
-            <?= $form->field($model->delivery, 'index')->textInput() ?>
-            <?= $form->field($model->delivery, 'address')->textarea(['rows' => 3]) ?>
+            <?= $form->field($model, 'delivery')->dropDownList($model->deliveryMethodsList(), ['prompt' => '--- Select ---']) ?>
+            <?= $form->field($model, 'index')->textInput() ?>
+            <?= $form->field($model, 'address')->textarea(['rows' => 3]) ?>
         </div>
     </div>
 

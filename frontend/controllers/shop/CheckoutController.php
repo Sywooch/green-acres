@@ -8,9 +8,9 @@
 
 namespace frontend\controllers\shop;
 
+use shop\cart\Cart;
 use Yii;
 use shop\forms\shop\order\OrderGuestForm;
-use shop\services\shop\CartService;
 use shop\services\shop\OrderGuestService;
 use yii\web\Controller;
 
@@ -21,14 +21,14 @@ class CheckoutController extends Controller
     public $layout = 'blank';
 
     private $service;
-    private $cartService;
+    private $cart;
 
 
-    public function __construct($id, $module,  CartService $cartService, OrderGuestService $service, $config = [])
+    public function __construct($id, $module,  Cart $cart, OrderGuestService $service, $config = [])
     {
         parent::__construct($id, $module, $config);
 
-        $this->cartService = $cartService;
+        $this->cart= $cart;
         $this->service = $service;
     }
 
@@ -38,13 +38,15 @@ class CheckoutController extends Controller
      */
     public function actionIndex()
     {
-        $cart = $this->cartService->getCart();
-        $totalCount = $this->cartService->getTotal();
+
         $form = new OrderGuestForm();
+        $cart = $this->cart->loadCartItems();
+        $totalCount = $this->cart->totalCount();
         if ($form->load(Yii::$app->request->post()) && $form->validate()) {
             try {
-                 $this->service->checkoutGuest($form);
+                 $this->service->checkoutGuest($form, $cart, $totalCount);
                 Yii::$app->session->setFlash('success', 'Ваш заказ оформлен!');
+                $this->cart->clear();
                 return $this->goHome();
 
             } catch (\DomainException $e) {
