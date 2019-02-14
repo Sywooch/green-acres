@@ -14,7 +14,7 @@ use yii\helpers\Url;
 use shop\entities\shop\product\Photo;
 
 $this->title = 'Сравнение товаров';
-$this->params['breadcrumbs'][] = ['label' => 'Catalog', 'url' => ['/shop/catalog/index']];
+$this->params['breadcrumbs'][] = ['label' => 'Каталог', 'url' => ['/shop/catalog/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

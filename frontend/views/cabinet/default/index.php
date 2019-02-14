@@ -5,37 +5,41 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
-$this->title = 'Cabinet';
+$this->title = 'Личный кабинет';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cabinet-index">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 class="_top"><?= Html::encode($this->title) ?></h1>
 
 
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
-           'username',
-           'email',
-            'phone',
+           [
+               'attribute' => 'username',
+                'label' => 'Логин'
+
+
+               ],
+            'email',
+            [
+                'attribute' =>  'phone',
+                'label' => 'Телефон'
+
+            ],
             [
                 'attribute' => 'status',
                 'value' => \shop\helpers\UserHelper::statusLabel($model->status),
                 'format' => 'raw',
+                'label' => 'Статус'
             ],
 
             [
-            'attribute' => 'created_at',
-            'format' => 'datetime',
-
-
-        ],
-
-            [
-            'attribute' => 'updated_at',
-            'format' => 'datetime',
+                'attribute' => 'created_at',
+                'format' => 'datetime',
+                'label' => 'Дата регистрации'
             ],
+
 
         ]
 
@@ -43,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
     <p>
-        <?= Html::a('Edit Profile', ['cabinet/profile/edit'], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Редактировать профиль', ['cabinet/profile/edit'], ['class' => 'btn btn-primary']) ?>
     </p>
 
 </div>

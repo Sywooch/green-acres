@@ -21,7 +21,7 @@ $this->registerMetaTag(['name'=> 'description', 'content' => $category->meta_des
 $this->registerMetaTag(['name'=> 'keywords', 'content' => $category->meta_keywords]);
 
 
-$this->params['breadcrumbs'][] = ['label' => 'Catalog', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Каталог', 'url' => ['index']];
 
 foreach ($category->parents as $parent) {
     if (!$parent->isRoot()) {
@@ -36,7 +36,7 @@ $this->params['active_category'] = $category;
 ?>
 
 
-<h1> <?= Html::encode($category->getHeadingTile())?></h1>
+<h1 class="_top"> <?= Html::encode($category->getHeadingTile())?></h1>
 
 
 <?= $this->render('_subcategories', [

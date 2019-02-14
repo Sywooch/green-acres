@@ -39,7 +39,7 @@ AppAsset::register($this);
     <nav id="top">
         <div class="container">
             <div class="pull-left">
-                <p class="top-lead">Семена с доставкой</p>
+                <p class=""><i class="fas fa-seedling"></i> Семена с доставкой</p>
                 <!--                <form action="/index.php?route=common/currency/currency" method="post"-->
                 <!--                      enctype="multipart/form-data" id="form-currency">-->
                 <!--                    <div class="btn-group">-->
@@ -70,8 +70,8 @@ AppAsset::register($this);
             </div>
             <div id="top-links" class="nav pull-right">
                 <ul class="list-inline">
-                    <li><a href="/index.php?route=information/contact"><i class="fa fa-phone"></i></a>
-                        <span class="hidden-xs hidden-sm hidden-md">123456789</span></li>
+                    <li><a href="#"><i class="fa fa-phone"></i></a>
+                        <span class="hidden-xs hidden-sm hidden-md">+7 916 902-8649</span></li>
                     <li class="dropdown"><a href="/index.php?route=account/account" title="My Account"
                                             class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
                             <span
@@ -94,13 +94,12 @@ AppAsset::register($this);
                     <li><a href="<?= Url::to(['/shop/cart/index']) ?>" title="Shopping Cart"><i
                                     class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?= Yii::t('app', 'Shopping Cart') ?></span></a>
                     </li>
-                    <li><a href="<?= Url::to(['/shop/compare/index']) ?>" title="Compare products"><i
-                                    class="fa fa-exchange"></i> <span class="hidden-xs hidden-sm hidden-md"><?=Yii::t('app', 'Compare products') ?></span></a>
+                    <li><a href="<?= Url::to(['/shop/compare/index']) ?>" title="Compare products"><i class="fas fa-info-circle"></i> <span class="hidden-xs hidden-sm hidden-md"><?=Yii::t('app', 'Compare products') ?></span></a>
                     </li>
 
 
 
-                    <li><a href="<?= Url::to(['/shop/checkout/index']) ?>" title="Checkout"><i
+                        <li><a href="<?= Url::to(['/shop/checkout/index']) ?>" title="Checkout"><i
                                     class="fa fa-share"></i> <span class="hidden-xs hidden-sm hidden-md"><?=Yii::t('app', 'Checkout') ?></span></a>
                     </li>
                 </ul>
@@ -113,7 +112,7 @@ AppAsset::register($this);
             <div class="row">
                 <div class="col-sm-4">
                     <div id="logo">
-                        <a href="<?= Url::home() ?>"><img src="<?= Yii::getAlias('@web/image/Logo.png') ?>" title="Your Store" alt="Your Store" class="img-responsive"/></a>
+                        <a href="<?= Url::home() ?>"><img src="<?= Yii::getAlias('@web/image/Logo.png') ?>" title="www.green-acres.ru" alt="Your Store" class="img-responsive"/></a>
                     </div>
                 </div>
                 <div class="col-sm-5">
@@ -167,50 +166,38 @@ AppAsset::register($this);
     <div class="container">
 
         <div class="row">
-            <div class="col-sm-3">
-                <h5>Information</h5>
+            <div class="col-sm-4">
+                <h5>Информация</h5>
                 <ul class="list-unstyled">
-                    <li><a href="/index.php?route=information/information&amp;information_id=4">About
-                            Us</a></li>
-                    <li><a href="/index.php?route=information/information&amp;information_id=6">Delivery
-                            Information</a></li>
-                    <li><a href="/index.php?route=information/information&amp;information_id=3">Privacy
-                            Policy</a></li>
-                    <li><a href="/index.php?route=information/information&amp;information_id=5">Terms
-                            &amp; Conditions</a></li>
+                    <li><a href="#"> Оплата</a></li>
+                    <li><a href="#">Доставка</a></li>
+                    <li><a href="#">Конфиденциальность</a></li>
+
                 </ul>
             </div>
-            <div class="col-sm-3">
-                <h5>Customer Service</h5>
+            <div class="col-sm-4">
+                <h5>Сервис</h5>
                 <ul class="list-unstyled">
-                    <li><a href="/index.php?route=information/contact">Contact Us</a></li>
-                    <li><a href="/index.php?route=account/return/add">Returns</a></li>
-                    <li><a href="/index.php?route=information/sitemap">Site Map</a></li>
+                    <li><a href="<?= Url::to(['/contact/index']) ?>">Контакты</a></li>
+                    <li><a href="#">Возвраты</a></li>
+                    <li><a href="#">Карта сайта</a></li>
                 </ul>
             </div>
-            <div class="col-sm-3">
-                <h5>Extras</h5>
+
+            <div class="col-sm-4">
+                <h5>Личный кабинет</h5>
                 <ul class="list-unstyled">
-                    <li><a href="<?= Url::to(['/shop/catalog/brand']) ?>"">Brands</a></li>
-                    <li><a href="/index.php?route=account/voucher">Gift Certificates</a></li>
-                    <li><a href="/index.php?route=affiliate/account">Affiliates</a></li>
-                    <li><a href="/index.php?route=product/special">Specials</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-3">
-                <h5>My Account</h5>
-                <ul class="list-unstyled">
-                    <li><a href="/index.php?route=account/account">My Account</a></li>
-                    <li><a href="/index.php?route=account/order">Order History</a></li>
-                    <li><a href="/index.php?route=account/wishlist">Wish List</a></li>
-                    <li><a href="/index.php?route=account/newsletter">Newsletter</a></li>
+                    <li><a href="#">Личный кабинет</a></li>
+                    <li><a href="#">Заказы</a></li>
+                    <li><a href="#">Избранное</a></li>
+
                 </ul>
             </div>
         </div>
         <hr>
-        <p class="pull-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
+        <p class="pull-right">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+
     </div>
 </footer>
 

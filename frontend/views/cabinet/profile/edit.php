@@ -6,7 +6,7 @@
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 
-$this->title = 'Edit Profile';
+$this->title = 'Редактирование профиля';
 $this->params['breadcrumbs'][] = ['label' => 'Cabinet', 'url' => ['cabinet/default/index']];
 $this->params['breadcrumbs'][] = 'Profile';
 ?>
@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = 'Profile';
             <?= $form->field($model, 'phone')->textInput(['maxLength' => true]) ?>
 
             <div class="form-group">
-                <?= Html::submitButton('Save', ['class' => 'btn btn-primary']) ?>
+                <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']) ?>
             </div>
 
             <?php ActiveForm::end(); ?>

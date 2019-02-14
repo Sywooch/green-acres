@@ -94,7 +94,7 @@ class Photo extends ActiveRecord
         ->save(Yii::getAlias('@webroot/uploads/thumbs/cart_widget_list/' . $newPictureRandomName), ['quality' => 80]);
 
 
-    $width = 400;
+    $width = 300;
     $height = round($width / $ratio);
 
 
@@ -102,7 +102,7 @@ class Photo extends ActiveRecord
         ->save(Yii::getAlias('@webroot/uploads/thumbs/catalog_list/' . $newPictureRandomName), ['quality' => 80]);
 
 
-    $width = 650;
+    $width = 500;
     $height = round($width / $ratio);
 
 

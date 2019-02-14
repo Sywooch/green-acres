@@ -9,12 +9,12 @@ use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\helpers\Html;
 
-$this->title = 'Wish List';
-$this->params['breadcrumbs'][] = ['label' => 'Cabinet', 'url' => ['cabinet/default/index']];
+$this->title = 'Избранное';
+$this->params['breadcrumbs'][] = ['label' => 'Личный кабинет', 'url' => ['cabinet/default/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cabinet-index">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 class="_top"><?= Html::encode($this->title) ?></h1>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -28,19 +28,21 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'raw',
                 'contentOptions' => ['style' => 'width: 100px'],
             ],
-            'id',
+
             [
                 'attribute' => 'name',
                 'value' => function (Product $model) {
                     return Html::a(Html::encode($model->name), ['/shop/catalog/product', 'id' => $model->id]);
                 },
                 'format' => 'raw',
+                'label' => 'Название'
             ],
             [
                 'attribute' => 'price_new',
                 'value' => function (Product $model) {
                     return PriceHelper::format($model->price_new);
                 },
+                'label' => 'Стоимость'
             ],
             [
                 'class' => ActionColumn::class,

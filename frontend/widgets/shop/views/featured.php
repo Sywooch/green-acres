@@ -38,7 +38,7 @@ use yii\helpers\Url;
                 <div>
                     <div class="caption">
                         <h4><a href="<?= Html::encode($url) ?>"><?= Html::encode($product->name) ?></a></h4>
-                        <p><?= Html::encode(StringHelper::truncateWords(strip_tags($product->description), 40)) ?></p>
+                        <p> <?=Yii::$app->formatter->asHtml($product->description) ?></p>
                         <p class="price">
                             <span class="price-new"><?= PriceHelper::format($product->price_new) ?></span>
                             <?php if ($product->price_old): ?>
@@ -52,10 +52,10 @@ use yii\helpers\Url;
                         <button type="button" href="<?= Url::to(['/shop/cart/add', 'id' => $product->id]) ?>"
                                 data-method="post"><i class="fa fa-shopping-cart"></i> <span
                                     class="hidden-xs hidden-sm hidden-md">В корзину</span></button>
-                        <button type="button" data-toggle="tooltip" title="В избранное"
-                                href="<?= Url::to(['/cabinet/wishlist/add', 'id' => $product->id]) ?>"
+                        <button type="button" data-toggle="tooltip" title="Добавить в избранное"
+                                href="#"
                                 data-method="post"><i class="fa fa-heart"></i></button>
-                        <button type="button" data-toggle="tooltip" title="Добавить в сравнения"
+                        <button type="button" data-toggle="tooltip" title="Добавить в сравнение"
                                 href="<?= Url::to(['/shop/compare/add', 'id' => $product->id]) ?>" data-method="post"><i class="fa fa-exchange"></i></button>
                     </div>
 

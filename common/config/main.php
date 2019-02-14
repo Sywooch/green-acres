@@ -5,6 +5,7 @@ return [
         '@npm'   => '@vendor/npm-asset',
     ],
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
+    'name' => 'www.green-acres.ru',
     'language' => 'ru-RU',
     'components' => [
         'cache' => [

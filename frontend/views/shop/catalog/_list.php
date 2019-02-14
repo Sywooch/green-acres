@@ -21,7 +21,7 @@ use yii\widgets\LinkPager;
     </div>
     <div class="col-md-3 col-sm-6">
         <div class="form-group">
-            <a href="/index.php?route=product/compare" id="compare-total" class="btn btn-link">Product Compare (0)</a>
+            <a href="<?= Url::to(['/shop/compare/index']) ?>" id="compare-total" class="btn btn-link">Сравнение продуктов</a>
         </div>
     </div>
     <div class="col-md-4 col-xs-6">

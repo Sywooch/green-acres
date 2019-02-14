@@ -13,7 +13,7 @@ use yii\helpers\Url;
 use shop\entities\shop\product\Photo;
 
 $this->title = Yii::t('app', 'Shopping Cart');
-$this->params['breadcrumbs'][] = ['label' => 'Catalog', 'url' => ['/shop/catalog/index']];
+$this->params['breadcrumbs'][] = ['label' => 'Каталог', 'url' => ['/shop/catalog/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cabinet-index">

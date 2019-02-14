@@ -26,7 +26,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => $product->meta_des
 
 $this->registerMetaTag(['name' => 'keywords', 'content' => $product->meta_keywords]);
 
-$this->params['breadcrumbs'][] = ['label' => 'Catalog', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Каталог', 'url' => ['index']];
 
 foreach ($product->category->parents as $parent) {
 
@@ -90,14 +90,7 @@ MagnificPopupAsset::register($this);
                 <?php endif; ?>
             <? endforeach; ?>
         </ul>
-
-
-        <ul class="nav nav-tabs">
-            <li class="active"><a href="#tab-description" data-toggle="tab">Description</a></li>
-            <li><a href="#tab-specification" data-toggle="tab">Specification</a></li>
-            <li><a href="#tab-review" data-toggle="tab">Reviews (0)</a></li>
-        </ul>
-
+<hr/>
 
         <div class="tab-content">
             <div class="tab-pane active" id="tab-description"><p>
@@ -170,25 +163,25 @@ MagnificPopupAsset::register($this);
 
         <p class="btn-group">
 
-            <button type="button" data-toggle="tooltip" class="btn btn-default" title="Add to Wish List"
-                    href="<?= Url::to(['/cabinet/wishlist/add', 'id' => $product->id]) ?>" data-method="post"><i
+            <button type="button" data-toggle="tooltip" class="btn btn-default" title="Добавить в избранное"
+                    href="#" data-method="post"><i
                         class="fa fa-heart"></i></button>
 
 
 
-            <button type="button" data-toggle="tooltip" class="btn btn-default" title="Compare this Product"
-                    onclick="compare.add('<?= $product->id ?>')"
-            ><i class="fa fa-exchange"></i></button>
+            <button type="button" data-toggle="tooltip" class="btn btn-default" title="Добавить в сравнение"
+                    href="<?= Url::to(['/shop/compare/add', 'id' => $product->id]) ?>" data-method="post"
+            ><i class="fas fa-info-circle"></i></button>
 
 
         </p>
 
-        <h1><?= Html::encode($product->name) ?></h1>
+        <h1 class="_top"><?= Html::encode($product->name) ?></h1>
 
         <ul class="list-unstyled">
 
             <li>
-                Brand:<a href="<?= Html::encode(Url::to(['brand', 'id' => $product->brand->id])) ?>">
+                Производитель семян:<a href="<?= Html::encode(Url::to(['brand', 'id' => $product->brand->id])) ?>">
 
                     <?= Html::encode($product->brand->name) ?>
                 </a>
@@ -196,7 +189,7 @@ MagnificPopupAsset::register($this);
             </li>
 
             <li>
-                Tags:
+                Тэги:
                 <?php foreach ($product->tags as $tag): ?>
 
                     <a href="<?= Html::encode(Url::to(['tag', 'id' => $tag->id])) ?>">
@@ -207,7 +200,7 @@ MagnificPopupAsset::register($this);
                 <?php endforeach; ?>
             </li>
 
-            <li>Product Code: <?= Html::encode($product->code) ?></li>
+            <li>Код продукта: <?= Html::encode($product->code) ?></li>
         </ul>
         <hr>
         <ul class="list-unstyled">

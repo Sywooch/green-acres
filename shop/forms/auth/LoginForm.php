@@ -18,7 +18,9 @@ class LoginForm extends Model
     public $password;
     public $rememberMe = true;
 
-
+    /**
+     * @return array
+     */
     public function rules()
     {
         return [
@@ -27,5 +29,23 @@ class LoginForm extends Model
         ];
     }
 
+    /**
+     * @return array
+     */
+    public function attributeLabels()
+    {
+
+        return [
+
+            'username' => 'Логин',
+            'password' => 'Пароль',
+            'rememberMe' => 'Запомнить'
+
+
+        ];
+
+
+    }
 
 }
+

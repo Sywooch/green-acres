@@ -39,17 +39,10 @@ use frontend\widgets\shop\FeaturedProductsWidget;
 
 
         </div>
-        <h3>Featured</h3>
 
         <?= FeaturedProductsWidget::widget([
             'limit' => 16,
         ]) ?>
-
-<!--        <h3>Last Posts</h3>-->
-
-<!--        --><?//= LastPostsWidget::widget([
-//            'limit' => 4,
-//        ]) ?>
 
 
         <?= $content ?>
@@ -65,7 +58,7 @@ $(\'#slideshow0\').owlCarousel({
     autoplayTimeout:3000,
     autoplayHoverPause:true,
     nav: true,
-    navText: [\'<i class="fa fa-chevron-left fa-5x"></i>\', \'<i class="fa fa-chevron-right fa-5x"></i>\'],
+    navText: [\'<i class="fa fa-chevron-left fa-1x"></i>\', \'<i class="fa fa-chevron-right fa-1x"></i>\'],
     dots: true
 });') ?>
 
@@ -77,7 +70,7 @@ $(\'#carousel0\').owlCarousel({
     autoplayTimeout:3000,
     autoplayHoverPause:true,
     nav: true,
-    navText: [\'<i class="fa fa-chevron-left fa-5x"></i>\', \'<i class="fa fa-chevron-right fa-5x"></i>\'],
+    navText: [\'<i class="fa fa-chevron-left fa-1x"></i>\', \'<i class="fa fa-chevron-right fa-1x"></i>\'],
     dots: true
 });') ?>
 

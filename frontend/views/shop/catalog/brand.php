@@ -11,7 +11,7 @@ $this->title = $brand->meta_title;
 $this->registerMetaTag(['name' =>'description', 'content' => $brand->meta_description]);
 $this->registerMetaTag(['name' =>'keywords', 'content' => $brand->meta_keywords]);
 
-$this->params['breadcrumbs'][] = ['label' => 'Catalog', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Каталог', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $brand->name;
 ?>
 

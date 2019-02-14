@@ -22,7 +22,6 @@ class SignupForm extends Model
     public $password;
 
 
-
     /**
      * @inheritdoc
      */
@@ -48,6 +47,22 @@ class SignupForm extends Model
         ];
     }
 
+
+    public function attributeLabels()
+    {
+
+        return [
+
+            'username' => 'Логин',
+            'email' => 'Email',
+            'password' => 'Пароль',
+            'phone' => 'Телефон'
+
+
+        ];
+
+
+    }
 
 
 }

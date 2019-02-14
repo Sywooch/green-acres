@@ -12,6 +12,7 @@ use Yii;
 use shop\entities\user\User;
 use shop\forms\auth\LoginForm;
 use shop\services\auth\AuthService;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 
 
@@ -29,6 +30,10 @@ class AuthController extends Controller
         $this->service = $service;
 
     }
+
+
+
+
 
     /**
      * @return mixed

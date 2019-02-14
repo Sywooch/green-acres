@@ -6,11 +6,11 @@
 
 use yii\helpers\Html;
 
-$this->title = 'Коллекция парфюмерии';
+$this->title = 'Семена';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<h1><?= Html::encode($this->title) ?></h1>
+<h1 class="_top"><?= Html::encode($this->title) ?></h1>
 
 <?= $this->render('_subcategories', [
     'category' => $category

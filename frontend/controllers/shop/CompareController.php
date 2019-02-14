@@ -55,7 +55,7 @@ class CompareController extends Controller
 
             $this->compare->addCompareProduct($product);
 
-            Yii::$app->session->setFlash('success', 'Success!');
+            Yii::$app->session->setFlash('success', 'Товар добавлен в сравнение');
             return $this->redirect(Yii::$app->request->referrer);
 
         }catch (\DomainException $e) {

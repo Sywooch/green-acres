@@ -11,8 +11,8 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 $this->title = 'Оформление заказа';
-$this->params['breadcrumbs'][] = ['label' => 'Catalog', 'url' => ['/shop/catalog/index']];
-$this->params['breadcrumbs'][] = ['label' => 'Shopping Cart', 'url' => ['/shop/cart/index']];
+$this->params['breadcrumbs'][] = ['label' => 'Каталог', 'url' => ['/shop/catalog/index']];
+$this->params['breadcrumbs'][] = ['label' => 'Корзина', 'url' => ['/shop/cart/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cabinet-index">

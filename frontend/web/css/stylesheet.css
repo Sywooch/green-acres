@@ -435,14 +435,11 @@ footer h5 {
 .btn-primary {
 	color: #ffffff;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-
 	background-color: #5ec89a;
-	/*background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);*/
-	/*background-repeat: repeat-x;*/
-	/*border-color: #1f90bb #1f90bb #145e7a;*/
 }
+
 .btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
-	background-color: #1f90bb;
+	background-color: #4a9e79;
 	background-position: 0 -15px;
 }
 .btn-warning {
@@ -508,7 +505,7 @@ footer h5 {
 }
 
 .btn-inverse:hover, .btn-inverse:active, .btn-inverse.active, .btn-inverse.disabled, .btn-inverse[disabled] {
-	background-color: rgba(255, 191, 65, 0.65);
+	background-color: rgb(255, 177, 66);
 
 }
 /* list group */
@@ -562,6 +559,7 @@ footer h5 {
 @media (min-width: 767px) {
 .product-list .product-thumb .image {
 	float: left;
+	width: 400px;
 	padding: 0 15px;
 }
 }
@@ -569,7 +567,7 @@ footer h5 {
 	font-weight: bold;
 }
 .product-thumb .caption {
-	padding: 0 20px;
+	padding: 20px 30px;
 	min-height: 180px;
 }
 .product-list .product-thumb .caption {
@@ -857,7 +855,7 @@ h2.price {
 /*#############################*/
 p.top-lead {
 
-	font-size: 16px;
+	font-size: 12px;
 	margin-top: 8px;
 }
 #logo img {
@@ -883,4 +881,10 @@ h2._top{
 .owl-carousel .owl-stage-outer {
 
 	height: 600px;
+}
+
+.thumbnail {
+
+	border:none;
+
 }
