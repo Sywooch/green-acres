@@ -26,18 +26,18 @@ class CategoryForm extends Model
     private $_category;
 
 
-    public function __construct(Category $category = null, array $config = [])
+    public function __construct(Category $page = null, array $config = [])
     {
-        if ($category) {
-            $this->name = $category->name;
-            $this->title = $category->title;
-            $this->description = $category->description;
-            $this->parentId = $category->parent ? $category->parent->id : null;
-            $this->meta_title = $category->meta_title;
-            $this->meta_description = $category->meta_description;
-            $this->meta_keywords = $category->meta_keywords;
+        if ($page) {
+            $this->name = $page->name;
+            $this->title = $page->title;
+            $this->description = $page->description;
+            $this->parentId = $page->parent ? $page->parent->id : null;
+            $this->meta_title = $page->meta_title;
+            $this->meta_description = $page->meta_description;
+            $this->meta_keywords = $page->meta_keywords;
 
-            $this->_category = $category;
+            $this->_category = $page;
         }
 
         parent::__construct($config);

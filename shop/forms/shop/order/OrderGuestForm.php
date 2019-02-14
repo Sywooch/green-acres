@@ -32,19 +32,6 @@ class OrderGuestForm extends Model
     public $name;
 
 
-    public function __construct(OrderGuest $orderGuest, array $config = [])
-    {
-        $this->delivery = $orderGuest->delivery_method_id;
-        $this->index = $orderGuest->delivery_index;
-        $this->address = $orderGuest->delivery_address;
-        $this->note = $orderGuest->note;
-        $this->phone = $orderGuest->customer_phone;
-        $this->name = $orderGuest->customer_name;
-
-
-
-        parent::__construct($config);
-    }
 
 
     public function rules()
@@ -52,7 +39,7 @@ class OrderGuestForm extends Model
         return [
             [['note'], 'string'],
             [['delivery'], 'integer'],
-            [['index', 'address'], 'required'],
+            [['index', 'address', 'delivery'], 'required'],
             [['index'], 'string', 'min' => 6, 'max' => 6],
             [['address'], 'string'],
             [['phone', 'name'], 'required'],

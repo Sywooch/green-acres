@@ -16,8 +16,8 @@ use shop\helpers\PriceHelper;
 /* @var $this yii\web\View */
 /* @var $searchModel backend\forms\shop\ProductSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-
-$this->title = 'Products';
+\frontend\assets\FontAwesomeAsset::register($this);
+$this->title = 'Товары';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -70,6 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'value' => function (Product $model) {
                             return PriceHelper::format($model->price_new);
                         },
+                        'format' => 'raw',
                     ],
                     'quantity',
                     [

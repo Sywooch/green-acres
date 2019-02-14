@@ -21,7 +21,7 @@ use shop\helpers\WeightHelper;
 /* @var $product shop\entities\shop\product\Product */
 /* @var $photosForm shop\forms\manage\shop\product\PhotosForm */
 /* @var $modificationsProvider yii\data\ActiveDataProvider */
-
+\frontend\assets\FontAwesomeAsset::register($this);
 $this->title = $product->name;
 $this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
@@ -55,44 +55,46 @@ $this->params['breadcrumbs'][] = $this->title;
                         'attributes' => [
                             'id',
                             [
-                                'attribute' => 'status',
+                                'attribute' => 'Статус',
                                 'value' => ProductHelper::statusLabel($product->status),
                                 'format' => 'raw',
                             ],
 
                             [
-                                'attribute' => 'brand_id',
+                                'attribute' => 'Бренд',
                                 'value' => ArrayHelper::getValue($product, 'brand.name'),
                             ],
                             'code',
                             'name',
                             [
-                                'attribute' => 'category_id',
+                                'attribute' => 'Основная категория',
                                 'value' => ArrayHelper::getValue($product, 'category.name'),
                             ],
 
                             [
-                                'label' => 'Other categories',
+                                'label' => 'Дополнительные категории',
                                 'value' => implode(', ', ArrayHelper::getColumn($product->categories, 'name')),
                             ],
 
                             [
-                                'label' => 'Tags',
+                                'label' => 'Тэги',
                                 'value' => implode(', ', ArrayHelper::getColumn($product->tags, 'name')),
                             ],
                             [
-                                'attribute' => 'weight',
+                                'attribute' => 'Вес',
                                 'value' => WeightHelper::format($product->weight),
                             ],
 
                             'quantity',
                             [
-                                'attribute' => 'price_new',
+                                'attribute' => 'Цена',
                                 'value' => PriceHelper::format($product->price_new),
+                                'format' => 'raw',
                             ],
                             [
-                                'attribute' => 'price_old',
+                                'attribute' => 'Уена старая',
                                 'value' => PriceHelper::format($product->price_old),
+                                'format' => 'raw',
                             ],
 
                             [
@@ -112,10 +114,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
                     <br/>
                     <p>
-                        <?= Html::a('Change Price', ['price', 'id' => $product->id], ['class' => 'btn btn-primary']) ?>
+                        <?= Html::a('Изменить цену', ['price', 'id' => $product->id], ['class' => 'btn btn-primary']) ?>
 
 
-                        <?= Html::a('Change Quantity', ['quantity', 'id' => $product->id], ['class' => 'btn btn-primary']) ?>
+                        <?= Html::a('Изменить количество', ['quantity', 'id' => $product->id], ['class' => 'btn btn-primary']) ?>
 
                     </p>
 

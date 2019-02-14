@@ -9,9 +9,8 @@
 namespace shop\services\manage\shop;
 
 
-use shop\entities\shop\order\CustomerData;
-use shop\entities\shop\order\DeliveryData;
-use shop\forms\manage\shop\order\OrderEditForm;
+use shop\forms\manage\shop\order\OrderEditGuestForm;
+
 use shop\repositories\shop\DeliveryRepository;
 use shop\repositories\shop\OrderGuestRepository;
 
@@ -33,30 +32,24 @@ class OrderManageService
 
     /**
      * @param $id
-     * @param OrderEditForm $form
+     * @param OrderEditGuestForm $form
      * @throws \yii\web\NotFoundHttpException
      */
 
-    public function edit($id, OrderEditForm $form)
+    public function edit($id, OrderEditGuestForm $form)
     {
         $order = $this->orders->get($id);
         $order->edit(
-
-           new CustomerData(
-
-               $form->customer->phone,
-               $form->customer->name
-           ),
-            $form->note
+            $form->delivery,
+            $form->index,
+            $form->address,
+            $form->note,
+            $form->phone,
+            $form->name,
+            $form->status
         );
 
-        $order->setDeliveryInfo(
-            $this->deliveryMethods->get($form->delivery->method),
-            new DeliveryData(
-                $form->delivery->index,
-                $form->delivery->address
-            )
-        );
+
 
         $this->orders->save($order);
 

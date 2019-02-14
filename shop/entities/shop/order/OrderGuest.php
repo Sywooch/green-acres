@@ -95,6 +95,24 @@ class OrderGuest extends ActiveRecord
 
     }
 
+    public function edit($delivery, $index, $address, $note, $phone, $name, $status )
+    {
+        $this->delivery_method_id = $delivery;
+        $this->delivery_index = $index;
+        $this->delivery_address = $address;
+        $this->note = $note;
+        $this->customer_phone = $phone;
+        $this->customer_name = $name;
+        $this->current_status = $status;
+
+
+
+    }
+
+
+
+
+
 
     ##########################
 

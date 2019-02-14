@@ -6,10 +6,12 @@
  * Time: 19:36
  */
 
-namespace shop\forms\manage\order;
+namespace shop\forms\manage\shop\order;
 
 
+use function PHPSTORM_META\map;
 use shop\entities\shop\Delivery;
+use shop\entities\shop\Order\OrderGuest;
 use shop\helpers\PriceHelper;
 use yii\base\Model;
 use yii\helpers\ArrayHelper;
@@ -29,15 +31,30 @@ class OrderEditGuestForm extends Model
     public $note;
     public $phone;
     public $name;
+    public $status;
 
 
+    public function __construct(OrderGuest $orderGuest, array $config = [])
+    {
+        $this->delivery = $orderGuest->delivery_method_id;
+        $this->index = $orderGuest->delivery_index;
+        $this->address = $orderGuest->delivery_address;
+        $this->note = $orderGuest->note;
+        $this->phone = $orderGuest->customer_phone;
+        $this->name = $orderGuest->customer_name;
+        $this->status = $orderGuest->current_status;
+
+
+
+        parent::__construct($config);
+    }
 
 
     public function rules()
     {
         return [
             [['note'], 'string'],
-            [['delivery'], 'integer'],
+            [['delivery', 'status'], 'integer'],
             [['index', 'address'], 'required'],
             [['index'], 'string', 'min' => 6, 'max' => 6],
             [['address'], 'string'],
@@ -54,16 +71,16 @@ class OrderEditGuestForm extends Model
     {
         return [
             'id' => 'ID',
-            'created_at' => 'Created At',
+            'created_at' => 'Дата создания',
             'username' => 'Username',
             'delivery' => 'Варианты доставки',
-            'delivery_method_name' => 'Delivery Method Name',
-            'delivery_cost' => 'Delivery Cost',
-            'payment_method' => 'Payment Method',
-            'cost' => 'Cost',
-            'note' => 'Note',
-            'current_status' => 'Current Status',
-            'cancel_reason' => 'Cancel Reason',
+            'delivery_method_name' => 'Доставка',
+            'delivery_cost' => 'Стоимость доставки',
+            'payment_method' => 'Метод оплаты',
+            'cost' => 'Полная стоимость заказаt',
+            'note' => 'Комментарии',
+            'current_status' => 'Статус заказа',
+            'cancel_reason' => 'Причина отмены',
             'phone' => 'Телефон',
             'name' => 'ФИО',
             'index' => 'Индекс',
@@ -84,7 +101,6 @@ class OrderEditGuestForm extends Model
             return $delivery->name . ' (' . $delivery->cost .')';
         });
     }
-
 
 
 

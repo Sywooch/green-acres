@@ -66,12 +66,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     <td class="text-left">
                         <a href=""><?= Html::encode($product->name) ?></a>
                     </td>
+
                     <td class="text-left">
                      <?=Yii::$app->formatter->asHtml($product->description) ?>
 
                     </td>
-
                     <td class="text-right"><?= PriceHelper::format($product->price_new) ?></td>
+
+
 
                 </tr>
 

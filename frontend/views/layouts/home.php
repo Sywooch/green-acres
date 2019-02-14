@@ -13,6 +13,8 @@ use frontend\widgets\shop\FeaturedProductsWidget;
 
 <div class="row">
     <div id="content" class="col-sm-12">
+
+
         <div id="slideshow0" class="owl-carousel" style="opacity: 1;">
             <div class="item">
               <img src="<?= Yii::getAlias('@web/image/banners/green_acres_1.jpg') ?>"
@@ -35,6 +37,7 @@ use frontend\widgets\shop\FeaturedProductsWidget;
             </div>
 
 
+
         </div>
         <h3>Featured</h3>
 
@@ -48,52 +51,7 @@ use frontend\widgets\shop\FeaturedProductsWidget;
 //            'limit' => 4,
 //        ]) ?>
 
-        <div id="carousel0" class="owl-carousel">
-            <div class="item text-center">
-                <img src="<?= Yii::getAlias('@web/image/manufacturer/nfl-130x100.png') ?>" alt="NFL"
-                     class="img-responsive"/>
-            </div>
-            <div class="item text-center">
-                <img src="<?= Yii::getAlias('@web/image/manufacturer/redbull-130x100.png') ?>"
-                     alt="RedBull" class="img-responsive"/>
-            </div>
-            <div class="item text-center">
-                <img src="<?=Yii::getAlias('@web/image/manufacturer/sony-130x100.png') ?>" alt="Sony"
-                     class="img-responsive"/>
-            </div>
-            <div class="item text-center">
-                <img src="<?=Yii::getAlias('@web/image/manufacturer/cocacola-130x100.png') ?>"
-                     alt="Coca Cola" class="img-responsive"/>
-            </div>
-            <div class="item text-center">
-                <img src="<?=Yii::getAlias('@web/image/manufacturer/burgerking-130x100.png') ?>"
-                     alt="Burger King" class="img-responsive"/>
-            </div>
-            <div class="item text-center">
-                <img src="<?=Yii::getAlias('@web/image/manufacturer/canon-130x100.png') ?>" alt="Canon"
-                     class="img-responsive"/>
-            </div>
-            <div class="item text-center">
-                <img src="<?=Yii::getAlias('@web/image/manufacturer/harley-130x100.png') ?>"
-                     alt="Harley Davidson" class="img-responsive"/>
-            </div>
-            <div class="item text-center">
-                <img src="<?=Yii::getAlias('@web/image/manufacturer/dell-130x100.png') ?>" alt="Dell"
-                     class="img-responsive"/>
-            </div>
-            <div class="item text-center">
-                <img src="<?=Yii::getAlias('@web/image/manufacturer/disney-130x100.png') ?>"
-                     alt="Disney" class="img-responsive"/>
-            </div>
-            <div class="item text-center">
-                <img src="<?=Yii::getAlias('@web/image/manufacturer/starbucks-130x100.png') ?>"
-                     alt="Starbucks" class="img-responsive"/>
-            </div>
-            <div class="item text-center">
-                <img src="<?=Yii::getAlias('@web/image/manufacturer/nintendo-130x100.png') ?>"
-                     alt="Nintendo" class="img-responsive"/>
-            </div>
-        </div>
+
         <?= $content ?>
     </div>
 </div>

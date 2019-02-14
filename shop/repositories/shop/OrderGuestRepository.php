@@ -10,7 +10,6 @@ namespace shop\repositories\shop;
 
 
 use shop\entities\shop\Order\OrderGuest;
-use shop\entities\shop\order\OrderItem;
 use yii\web\NotFoundHttpException;
 
 /**

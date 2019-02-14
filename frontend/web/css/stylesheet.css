@@ -166,12 +166,12 @@ div.required .control-label:before {
 #cart > .btn {
 	font-size: 12px;
 	line-height: 18px;
-	color: #FFF;
+	color: #fff;
 }
 #cart.open > .btn {
 	background-image: none;
-	background-color: #FFFFFF;
-	border: 1px solid #E6E6E6;
+	background-color: #ffbf41;
+
 	color: #666;
 	box-shadow: none;
 	text-shadow: none;
@@ -180,7 +180,7 @@ div.required .control-label:before {
 	color: #444;
 }
 #cart .dropdown-menu {
-	background: #eee;
+	background: #fff;
 	z-index: 1001;
 }
 #cart .dropdown-menu {
@@ -330,16 +330,16 @@ div.required .control-label:before {
 footer {
 	margin-top: 30px;
 	padding-top: 30px;
-	background-color: #303030;
+	background-color: #e7e7e7;
 	border-top: 1px solid #ddd;
-	color: #e2e2e2;
+	color: #40ab76;
 }
 footer hr {
 	border-top: none;
 	border-bottom: 1px solid #666;
 }
 footer a {
-	color: #ccc;
+	color: #777;
 }
 footer a:hover {
 	color: #fff;
@@ -348,7 +348,7 @@ footer h5 {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 13px;
 	font-weight: bold;
-	color: #fff;
+	color: #777;
 }
 /* alert */
 .alert {
@@ -502,16 +502,14 @@ footer h5 {
 	box-shadow: none;
 }
 .btn-inverse {
-	color: #ffffff;
+	color: #54d17b;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-	background-color: #363636;
-	background-image: linear-gradient(to bottom, #444444, #222222);
-	background-repeat: repeat-x;
-	border-color: #222222 #222222 #000000;
+	background-color: #ffbf41;
 }
+
 .btn-inverse:hover, .btn-inverse:active, .btn-inverse.active, .btn-inverse.disabled, .btn-inverse[disabled] {
-	background-color: #222222;
-	background-image: linear-gradient(to bottom, #333333, #111111);
+	background-color: rgba(255, 191, 65, 0.65);
+
 }
 /* list group */
 .list-group a {
@@ -880,4 +878,9 @@ h2._top{
 	font-size: 1.8em;
 	color: #40ab76;
 
+}
+
+.owl-carousel .owl-stage-outer {
+
+	height: 600px;
 }

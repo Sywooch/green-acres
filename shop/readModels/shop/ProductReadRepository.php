@@ -11,15 +11,12 @@ namespace shop\readModels\shop;
 use shop\entities\shop\Brand;
 use shop\entities\shop\Category;
 use shop\entities\shop\product\Product;
-use shop\entities\shop\product\Value;
-use shop\entities\shop\product\ValueAssignment;
 use shop\entities\shop\Tag;
 use shop\forms\shop\search\SearchForm;
-use shop\forms\shop\search\ValueSearchForm;
 use yii\data\ActiveDataProvider;
 use yii\db\ActiveQuery;
 use yii\helpers\ArrayHelper;
-use yii\helpers\VarDumper;
+
 
 class ProductReadRepository
 {
@@ -171,27 +168,7 @@ class ProductReadRepository
             }
         }
 
-        if ($form->values) {
 
-            $productsIds = null;
-
-            foreach ($form->values as $value) {
-
-                if ($value->isFilled()) {
-
-                    $q = ValueAssignment::find()->andWhere(['characteristic_id' => $value->getId()]);
-
-                    $q->andFilterWhere(['value' => $value->equal]);
-
-                    $foundsIds = $q->select('product_id')->column();
-
-                    $productsIds = $productsIds === null ? $foundsIds : array_intersect($productsIds, $foundsIds);
-                }
-            }
-            if ($productsIds !== null) {
-
-                $query->andWhere(['p.id' => $productsIds]);
-            }
 
             if (!empty($form->text)) {
 
@@ -200,7 +177,7 @@ class ProductReadRepository
 
             $query->groupBy('p.id');
 
-        }
+
 
 
         return $dataProvider = new ActiveDataProvider([

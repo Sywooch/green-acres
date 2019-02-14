@@ -8,7 +8,7 @@ use yii\helpers\Html;
 
 class ProductHelper
 {
-    public static function statusList(): array
+    public static function statusList()
     {
         return [
             Product::STATUS_DRAFT => 'Draft',

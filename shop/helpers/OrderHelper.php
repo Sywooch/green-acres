@@ -64,12 +64,16 @@ class OrderHelper
 
         switch ($status) {
 
-            case Product::STATUS_DRAFT:
-                $class = 'label label-default';
+            case OrderGuest::NEW_ORDER:
+                $class = 'label label-success';
                 break;
 
-            case Product::STATUS_ACTIVE:
+            case OrderGuest::PAID:
                 $class = 'label label-success';
+                break;
+
+            case OrderGuest::CANCELLED_BY_CUSTOMER:
+                $class = 'label label-warning';
                 break;
 
             default:

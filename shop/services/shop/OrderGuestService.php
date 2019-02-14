@@ -77,8 +77,7 @@ class OrderGuestService
             $orderItem->save();
 
         }
-
-
+        $this->cart->clear();
         $sent = $this->mailer->compose(
 
             ['html' => 'order/order/confirmOrder-html'],

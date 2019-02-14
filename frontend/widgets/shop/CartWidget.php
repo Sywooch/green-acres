@@ -28,7 +28,9 @@ class CartWidget extends Widget
     public function run()
     {
 
-        return $this->render('cart', ['cart' => $this->cart]);
+        $cartItems =  $this->cart->loadCartItems();
+
+        return $this->render('cart', ['cart' => $this->cart, 'cartItems' => $cartItems]);
 
 
     }

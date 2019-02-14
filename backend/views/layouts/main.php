@@ -13,6 +13,7 @@ use common\widgets\Alert;
 
 AppAsset::register($this);
 
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -51,6 +52,8 @@ AppAsset::register($this);
 
 
         ['label' => Yii::t('app', 'Users'), 'url' => ['/user/index']],
+        ['label' => Yii::t('app', 'Pages'), 'url' => ['/page/index']],
+
         ['label' => Yii::t('app', 'Clean cache'), 'url' => ['/auth/cache']],
     ];
     if (Yii::$app->user->isGuest) {

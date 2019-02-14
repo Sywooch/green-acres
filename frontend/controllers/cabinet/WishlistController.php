@@ -33,7 +33,7 @@ class WishlistController extends Controller
         $this->products = $products;
     }
 
-    public function behaviors(): array
+    public function behaviors()
     {
         return [
             'access' => [

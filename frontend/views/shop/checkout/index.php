@@ -25,8 +25,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td class="text-left">Название товара</td>
 
                 <td class="text-left">Количество</td>
-                <td class="text-right">Цена единицу</td>
-                <td class="text-right">Всего</td>
+                <td class="text-right">Цена за единицу</td>
+                <td class="text-right">Стоимость</td>
             </tr>
             </thead>
             <tbody>
@@ -70,7 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <!--                </tr>-->
                 <tr>
                     <td class="text-right"><strong>Вес:</strong></td>
-
+                    <td class="text-right">Вес заказа до 2кг</td>
                 </tr>
 
                 <tr>
@@ -78,7 +78,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 </tr>
                 <tr>
-                    <td class="text-right"><strong>Полная стоимость:</strong></td>
+                    <td class="text-right"><strong>Стоимость:</strong></td>
                     <td class="text-right"><?=PriceHelper::format($totalCount) ?></td>
                 </tr>
             </table>
@@ -108,7 +108,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
     <div class="panel panel-default">
-        <div class="panel-heading">Note</div>
+        <div class="panel-heading">Комментарии</div>
         <div class="panel-body">
             <?= $form->field($model, 'note')->textarea(['rows' => 3]) ?>
         </div>

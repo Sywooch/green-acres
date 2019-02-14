@@ -9,10 +9,10 @@
 namespace backend\controllers\shop;
 
 
-use shop\entities\shop\order\Order;
 use shop\entities\shop\Order\OrderGuest;
-use shop\forms\manage\shop\order\OrderEditForm;
-use shop\forms\shop\order\OrderGuestForm;
+
+
+use shop\forms\manage\shop\order\OrderEditGuestForm;
 use Yii;
 use backend\forms\shop\OrderSearch;
 use shop\services\manage\shop\OrderManageService;
@@ -37,7 +37,7 @@ class OrderController extends Controller
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'export' => ['POST'],
                     'delete' => ['POST'],
@@ -68,34 +68,10 @@ class OrderController extends Controller
 
     public function actionExport()
     {
-        /**
-         * OrderGuest model
-         *
-         * @property integer $id
-         * @property integer $created_at
-         * @property string $username
-         * @property integer $delivery_method_id
-         * @property string $delivery_method_name
-         * @property integer $delivery_cost
-         * @property string $payment_method
-         * @property integer $cost
-         * @property string $note
-         * @property integer $current_status
-         * @property string $cancel_reason
-         * @property integer $statuses
-         * @property string $customer_phone
-         * @property string $customer_name
-         * @property string $delivery_index
-         * @property string $delivery_address
-
-         */
-
-
 
         $query = OrderGuest::find()->orderBy(['id' => SORT_DESC]);
 
         $objPHPExcel = new \PHPExcel();
-
 
         $worksheet = $objPHPExcel->getActiveSheet();
 
@@ -103,12 +79,12 @@ class OrderController extends Controller
 
             $worksheet->setCellValueByColumnAndRow(0, $row + 1, $order->id);
             $worksheet->setCellValueByColumnAndRow(1, $row + 1, date('Y-m-d H:i:s', $order->created_at));
-            $worksheet->setCellValueByColumnAndRow(0, $row + 1, $order->username);
-            $worksheet->setCellValueByColumnAndRow(0, $row + 1, $order->delivery_method_name);
-            $worksheet->setCellValueByColumnAndRow(0, $row + 1, $order->delivery_cost);
-            $worksheet->setCellValueByColumnAndRow(0, $row + 1, $order->payment_method);
-            $worksheet->setCellValueByColumnAndRow(0, $row + 1, $order->cost);
-            $worksheet->setCellValueByColumnAndRow(0, $row + 1, $order->current_status);
+            $worksheet->setCellValueByColumnAndRow(2, $row + 1, $order->username);
+            $worksheet->setCellValueByColumnAndRow(3, $row + 1, $order->delivery_method_name);
+            $worksheet->setCellValueByColumnAndRow(4, $row + 1, $order->delivery_cost);
+            $worksheet->setCellValueByColumnAndRow(5, $row + 1, $order->payment_method);
+            $worksheet->setCellValueByColumnAndRow(6, $row + 1, $order->cost);
+            $worksheet->setCellValueByColumnAndRow(7, $row + 1, $order->current_status);
 
         }
 
@@ -116,12 +92,10 @@ class OrderController extends Controller
 
         //$pdf = new \PHPExcel_Writer_PDF($objPHPExcel);
 
-
         $file = tempnam(sys_get_temp_dir(), 'export');
         $objWriter->save($file);
 
-        return Yii::$app->response->sendFile($file, 'report.xlsx');
-
+        return Yii::$app->response->sendFile($file, 'Заказ семян.xlsx');
 
     }
 
@@ -148,7 +122,7 @@ class OrderController extends Controller
     {
         $order = $this->findModel($id);
 
-        $form = new OrderGuestForm($order);
+        $form = new OrderEditGuestForm($order);
         if ($form->load(Yii::$app->request->post()) && $form->validate()) {
             try {
                 $this->service->edit($order->id, $form);
@@ -163,7 +137,6 @@ class OrderController extends Controller
             'order' => $order,
         ]);
     }
-
 
 
     /**

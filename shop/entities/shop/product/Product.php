@@ -10,6 +10,7 @@ namespace shop\entities\shop\product;
 
 
 use shop\entities\shop\product\queries\ProductQuery;
+use shop\entities\user\WishlistItem;
 use shop\forms\manage\shop\product\ProductEditForm;
 use Yii;
 use shop\entities\shop\Brand;
@@ -325,6 +326,10 @@ class Product extends ActiveRecord
 
     }
 
+    public function getWishlistItems()
+    {
+        return $this->hasMany(WishlistItem::class, ['product_id' => 'id']);
+    }
 
   ##########################################################################################################
 

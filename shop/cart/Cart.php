@@ -13,7 +13,7 @@ use Yii;
 class Cart
 {
 
-    private $cartItems;
+    public $cartItems;
 
 
     public function addCart($product, $quantity)
@@ -70,6 +70,9 @@ class Cart
 
     }
 
+    /**
+     * @return int
+     */
     public function totalCount()
     {
 
@@ -85,6 +88,18 @@ class Cart
         return $totalCount;
 
     }
+
+    /**
+     * @return int
+     */
+    public function getAmount()
+    {
+        $this->loadCartItems();
+
+        return count($this->cartItems);
+    }
+
+
 
     /**
      *

@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cabinet-index">
 
-    <h1 class="_top"><?= Html::encode($this->title) ?></h1>
+    <h1 class="_top"><?= Html::encode($this->title)?></h1>
 
 
     <div class="table-responsive">
@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td class="text-left">Product Name</td>
                 <td class="text-left">Количество</td>
                 <td class="text-right">Цена за единицу</td>
-                <td class="text-right">Всего</td>
+                <td class="text-right">Итого</td>
             </tr>
             </thead>
 
@@ -81,7 +81,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= Html::endForm() ?>
                 </td>
 
-                <td class="text-right"><?= $product->price_new ?></td>
+                <td class="text-right"><?= PriceHelper::format($product->price_new) ?></td>
                 <td class="text-right"><?= PriceHelper::format($product->price_new * $quantity) ?></td>
 
             </tr>
@@ -111,7 +111,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </tr>
                 <tr>
                     <td class="text-right"><strong>Вес:</strong></td>
-
+                    <td class="text-right">Вес заказа до 2кг</td>
                 </tr>
 
                 <tr>
@@ -120,10 +120,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 </tr>
                 <tr>
                     <td class="text-right"><strong>Полная стоимость:</strong></td>
-                    <td class="text-right"><?=$total ?></td>
+                    <td class="text-right"><?=PriceHelper::format($total) ?></td>
+
                 </tr>
+
             </table>
+
         </div>
+
     </div>
 
 

@@ -11,17 +11,9 @@ namespace shop\forms\shop\search;
 
 use shop\entities\shop\Brand;
 use shop\entities\shop\Category;
-use shop\entities\shop\Characteristic;
-use shop\entities\shop\product\ValueAssignment;
-use shop\forms\CompositeForm;
 use yii\base\Model;
 use yii\helpers\ArrayHelper;
 
-
-
-/**
- * @property ValueSearchForm[] $values
- */
 
 class SearchForm extends Model
 {
@@ -29,16 +21,10 @@ class SearchForm extends Model
     public $text;
     public $category;
     public $brand;
-    public $values;
 
 
-    public function __construct(array $config = [])
-    {
-        $this->values = array_map(function (Characteristic $characteristic) {
-            return new ValueSearchForm($characteristic);
-        }, Characteristic::find()->orderBy('sort')->all());
-        parent::__construct($config);
-    }
+
+
 
 
     public function rules()
@@ -66,14 +52,6 @@ class SearchForm extends Model
     }
 
 
-    public function valueList()
-    {
-
-        return ArrayHelper::map(ValueAssignment::find()->orderBy('value')->asArray()->all(), 'product_id', 'value');
-
-
-    }
-
     public function categoriesList()
     {
 
@@ -90,19 +68,5 @@ class SearchForm extends Model
 
     }
 
-    public function getCharacteristics()
-    {
-        return Characteristic::find()->all();
-
-    }
-
-
-
-
-    public function getValueSearchForm()
-    {
-        return $this->values;
-
-    }
 
 }

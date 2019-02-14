@@ -12,10 +12,9 @@ use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use frontend\widgets\Shop\CartWidget;
 use common\widgets\Alert;
-use shop\forms\shop\search\SearchForm;
+
 
 AppAsset::register($this);
-
 
 ?>
 <?php $this->beginPage() ?>
@@ -128,7 +127,7 @@ AppAsset::register($this);
                     <?= Html::endForm() ?>
                 </div>
                 <div class="col-sm-3">
-                    <!--                    --><? //= CartWidget::widget() ?>
+                                        <?= CartWidget::widget() ?>
                 </div>
             </div>
         </div>
