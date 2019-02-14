@@ -9,9 +9,9 @@
 namespace shop\forms\shop;
 
 use Yii;
-use shop\entities\shop\product\Modification;
+
 use shop\entities\shop\product\Product;
-use shop\helpers\PriceHelper;
+
 use yii\base\Model;
 use yii\helpers\ArrayHelper;
 
@@ -43,6 +43,23 @@ class AddToCartForm extends Model
         ];
 
     }
+
+    public function attributeLabels()
+    {
+
+    return[
+
+
+        'quantity' => 'Количество',
+
+
+    ];
+
+
+
+
+    }
+
 
 
 

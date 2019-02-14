@@ -75,7 +75,7 @@ class CartController extends Controller
 
         try{
             $this->service->add($product, 1);
-            Yii::$app->session->setFlash('success', 'Success!');
+            Yii::$app->session->setFlash('success', 'Товар добавлен в корзину!');
             return $this->redirect(Yii::$app->request->referrer);
 
         }catch (\DomainException $e) {
@@ -84,8 +84,21 @@ class CartController extends Controller
             Yii::$app->session->setFlash('error', $e->getMessage());
         }
 
+        return $this->redirect(Yii::$app->request->referrer);
+
+    }
+
+    /**
+     * @param $id
+     * @return string|\yii\web\Response
+     */
+
+    public function  actionAddProduct($id)
+    {
 
         $this->layout = 'blank';
+
+        $product  = Product::find()->andWhere(['id' => $id])->one();
 
         $form = new AddToCartForm($product);
 
@@ -93,20 +106,21 @@ class CartController extends Controller
         if ($form->load(Yii::$app->request->post()) && $form->validate()) {
             try {
                 $this->service->add($product, $form->quantity);
-                return $this->redirect(['index']);
+                Yii::$app->session->setFlash('success', 'Товар добавлен в корзину!');
+
             } catch (\DomainException $e) {
                 Yii::$app->errorHandler->logException($e);
                 Yii::$app->session->setFlash('error', $e->getMessage());
             }
         }
+        return $this->redirect(Yii::$app->request->referrer);
 
-        return $this->render('add', [
-            'product' => $product,
-            'model' => $form,
-        ]);
     }
 
-
+    /**
+     * @param $id
+     * @return \yii\web\Response
+     */
     public function actionAddQuantity($id)
     {
         try{

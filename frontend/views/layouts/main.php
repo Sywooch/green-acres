@@ -147,7 +147,7 @@ AppAsset::register($this);
             'items' => [
                 ['label' => Yii::t('app', 'Home'), 'url' => ['/site/index']],
                 ['label' => Yii::t('app', 'Catalog'), 'url' => ['/shop/catalog/index']],
-                ['label' => Yii::t('app', 'Blog'), 'url' => ['/blog/post/index']],
+                ['label' => Yii::t('app', 'Delivery'), 'url' => ['/page/view?id=2']],
                 ['label' => Yii::t('app', 'Contact'), 'url' => ['/contact/index']],
             ],
         ]);

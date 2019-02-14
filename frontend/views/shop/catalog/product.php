@@ -209,6 +209,7 @@ MagnificPopupAsset::register($this);
 
             <li>Product Code: <?= Html::encode($product->code) ?></li>
         </ul>
+        <hr>
         <ul class="list-unstyled">
             <li>
                 <h2><?= PriceHelper::format($product->price_new) ?>
@@ -239,17 +240,16 @@ MagnificPopupAsset::register($this);
             <?php if ($product->isAvailable()): ?>
 
                 <hr>
-                <h3>Available Options</h3>
 
                 <?php $form = ActiveForm::begin([
-                'action' => ['/shop/cart/add', 'id' => $product->id],
+                'action' => ['/shop/cart/add-product', 'id' => $product->id],
             ]) ?>
 
 
                 <?= $form->field($cartForm, 'quantity')->textInput() ?>
 
                 <div class="form-group">
-                    <?= Html::submitButton('Add to Cart', ['class' => 'btn btn-primary btn-lg btn-block']) ?>
+                    <?= Html::submitButton('Добавить в корзину', ['class' => 'btn btn-primary btn-lg btn-block']) ?>
                 </div>
 
                 <?php ActiveForm::end() ?>
@@ -264,27 +264,6 @@ MagnificPopupAsset::register($this);
 
         </div>
 
-        <div class="rating">
-            <p>
-                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">0 reviews</a> / <a
-                        href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">Write a
-                    review</a></p>
-            <hr>
-            <!-- AddThis Button BEGIN -->
-            <div class="addthis_toolbox addthis_default_style"
-                 data-url="/index.php?route=product/product&amp;product_id=47"><a class="addthis_button_facebook_like"
-                                                                                  fb:like:layout="button_count"></a> <a
-                        class="addthis_button_tweet"></a> <a class="addthis_button_pinterest_pinit"></a> <a
-                        class="addthis_counter addthis_pill_style"></a></div>
-            <script type="text/javascript"
-                    src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script>
-            <!-- AddThis Button END -->
-        </div>
 
 
     </div>

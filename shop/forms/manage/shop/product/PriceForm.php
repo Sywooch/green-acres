@@ -39,5 +39,4 @@ class PriceForm extends Model
 
 
 
-
 }
